@@ -6,7 +6,21 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:40:53 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/12 16:52:10 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/12 17:00:16 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
+int ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		write (1, &str[i], 1);
+		i++;
+	}
+	return i;
+}

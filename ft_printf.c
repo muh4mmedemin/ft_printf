@@ -6,7 +6,7 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:46:49 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/12 16:54:00 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/12 17:01:10 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int format(va_list args, char c)
 		return (write(1, &"%", 1));
 	else if (c == 'c')
 		return (write(1, &c, 1));
+	else if (c == 's')
+		return (ft_putstr(va_arg(args, char *)));
 	return 0;
 }
 
@@ -46,6 +48,6 @@ int	ft_printf(const char *str, ...)
 
 int main ()
 {
-	char c = 'd';
-	ft_printf("Merhaba Benim %c %c %c %%Adım ", c, c, c);
+	char *c = "Mami";
+	ft_printf("Merhaba Benim Adım : %s ", c);
 }
