@@ -6,7 +6,7 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:46:49 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/12 17:01:10 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/13 14:18:37 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 int format(va_list args, char c)
 {
 	if (c == '%')
-		return (write(1, &"%", 1));
+		return (write(1, "%", 1));
 	else if (c == 'c')
 		return (write(1, &c, 1));
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
+	else if (c == 'p')
+		return(ft_write_pointer(va_arg(args, void *)));
+	else if (c == 'd' || c == 'i')
+		return (ft_putnbr(va_arg(args, int)));
 	return 0;
 }
 
@@ -49,5 +53,7 @@ int	ft_printf(const char *str, ...)
 int main ()
 {
 	char *c = "Mami";
-	ft_printf("Merhaba Benim Adım : %s ", c);
+	int d = 244;
+	int w = ft_printf("Merhaba Benim Adım : %s Bu da pointer adresim %p Yaşım %d", c, c,d );
+	printf("%d", w);
 }

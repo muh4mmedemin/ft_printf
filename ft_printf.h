@@ -6,7 +6,7 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:42:00 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/12 16:59:46 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/13 14:14:39 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@
 
 int	ft_printf(const char *str, ...);
 int ft_putstr(char *str);
+int ft_write_pointer(void *p);
+int ft_putnbr(int n);
 
 #endif
