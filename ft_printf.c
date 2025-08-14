@@ -6,7 +6,7 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:46:49 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/13 14:18:37 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/14 23:04:45 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 
 int format(va_list args, char c)
 {
+	char d;
 	if (c == '%')
 		return (write(1, "%", 1));
 	else if (c == 'c')
-		return (write(1, &c, 1));
+	{
+		d = va_arg(args, int);
+		return (write(1, &d, 1));
+	}
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p')
 		return(ft_write_pointer(va_arg(args, void *)));
 	else if (c == 'd' || c == 'i')
 		return (ft_putnbr(va_arg(args, int)));
+	else if (c == 'u')
+		return (ft_unsigned_putnbr(va_arg(args, unsigned int)));
+	else if (c == 'x' || c == 'X')
+		return (ft_decimalto_hexadecimal(va_arg(args, unsigned int), c));
 	return 0;
 }
 
@@ -48,12 +56,4 @@ int	ft_printf(const char *str, ...)
 		i++;
 	}
 	return print_size;
-}
-
-int main ()
-{
-	char *c = "Mami";
-	int d = 244;
-	int w = ft_printf("Merhaba Benim Adım : %s Bu da pointer adresim %p Yaşım %d", c, c,d );
-	printf("%d", w);
 }
