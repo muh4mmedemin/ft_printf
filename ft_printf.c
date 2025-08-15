@@ -6,7 +6,7 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:46:49 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/15 14:54:55 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/15 23:53:58 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return print_size;
-}
-
-int main ()
-{
-	int orjp;
-	int benmp;
-	orjp = printf("Orjinal : %s\n", "");
-	benmp = ft_printf("Benim %s\n", "");
-	printf("Orjinal %d\nBenim %d\n", orjp, benmp);
 }
