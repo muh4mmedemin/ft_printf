@@ -6,7 +6,7 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:42:00 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/14 16:30:58 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/15 23:53:17 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF
 
 #include <unistd.h>
-#include <stdio.h> //SİL BUNU
 #include <stdarg.h>
 
 
