@@ -6,13 +6,13 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:46:49 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/15 23:53:58 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/18 16:49:07 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int format(va_list args, char c)
+static int format(va_list args, char c)
 {
 	char d;
 	if (c == '%')
