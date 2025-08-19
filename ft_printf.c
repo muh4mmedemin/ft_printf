@@ -12,9 +12,10 @@
 
 #include "ft_printf.h"
 
-static int format(va_list args, char c)
+static int	format(va_list args, char c)
 {
-	char d;
+	char	d;
+
 	if (c == '%')
 		return (write(1, "%", 1));
 	else if (c == 'c')
@@ -25,14 +26,14 @@ static int format(va_list args, char c)
 	else if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'p')
-		return(ft_write_pointer(va_arg(args, void *)));
+		return (ft_write_pointer(va_arg(args, void *)));
 	else if (c == 'd' || c == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (c == 'u')
 		return (ft_unsigned_putnbr(va_arg(args, unsigned int)));
 	else if (c == 'x' || c == 'X')
-		return (ft_decimalto_hexadecimal(va_arg(args, unsigned int), c));
-	return 0;
+		return ((ft_decimalto_hexadecimal(va_arg(args, unsigned int), c)));
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -56,5 +57,5 @@ int	ft_printf(const char *str, ...)
 		i++;
 	}
 	va_end(args);
-	return print_size;
+	return (print_size);
 }

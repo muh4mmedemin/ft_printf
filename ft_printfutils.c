@@ -6,44 +6,42 @@
 /*   By: muayna <muayna@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:40:53 by muayna            #+#    #+#             */
-/*   Updated: 2025/08/15 23:54:21 by muayna           ###   ########.fr       */
+/*   Updated: 2025/08/19 14:22:09 by muayna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(str == NULL)
+	if (str == NULL)
 	{
 		i += write (1, "(null)", 6);
-		return i;
+		return (i);
 	}
 	while (str[i])
 	{
 		write (1, &str[i], 1);
 		i++;
 	}
-	return i;
+	return (i);
 }
 
-int ft_write_pointer(void *p)
+int	ft_write_pointer(void *p)
 {
-	unsigned long dec = (unsigned long)p;
-	long long k[32];
-	long long i;
-	int print_count;
+	unsigned long	dec;
+	long long		k[32];
+	long long		i;
+	int				print_count;
 
+	dec = (unsigned long)p;
 	print_count = 0;
 	i = 0;
-	if(p == NULL)
-	{
-		print_count += write (1, "(nil)", 5);
-		return print_count;
-	}
+	if (p == NULL)
+		return (print_count + write (1, "(nil)", 5));
 	while (dec > 0)
 	{
 		k[i] = dec % 16;
@@ -57,13 +55,14 @@ int ft_write_pointer(void *p)
 		print_count += write(1, &"0123456789abcdef"[k[i]], 1);
 		i--;
 	}
-	return print_count;
+	return (print_count);
 }
 
-int ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-	int print_count;
-	int temp;
+	int	print_count;
+	int	temp;
+
 	print_count = 0;
 	if (n == 0)
 		print_count++;
@@ -85,12 +84,14 @@ int ft_putnbr(int n)
 		write(1, &"0123456789"[n % 10], 1);
 	else
 		print_count += write(1, "-2147483648", 11);
-	return print_count;
+	return (print_count);
 }
-int ft_unsigned_putnbr(unsigned int n)
+
+int	ft_unsigned_putnbr(unsigned int n)
 {
-	int print_count;
-	unsigned int temp;
+	int				print_count;
+	unsigned int	temp;
+
 	print_count = 0;
 	if (n == 0)
 		print_count++;
@@ -103,14 +104,14 @@ int ft_unsigned_putnbr(unsigned int n)
 	if (n > 9)
 		ft_unsigned_putnbr(n / 10);
 	write(1, &"0123456789"[n % 10], 1);
-	return print_count;
+	return (print_count);
 }
 
-int ft_decimalto_hexadecimal(unsigned int n, char c)
+int	ft_decimalto_hexadecimal(unsigned int n, char c)
 {
-	long long k[32];
-	int i;
-	int print_count;
+	long long	k[32];
+	int			i;
+	int			print_count;
 
 	print_count = 0;
 	i = 0;
@@ -125,11 +126,11 @@ int ft_decimalto_hexadecimal(unsigned int n, char c)
 	i--;
 	while (i >= 0)
 	{
-		if(c == 'x')
+		if (c == 'x')
 			print_count += write(1, &"0123456789abcdef"[k[i]], 1);
 		else if (c == 'X')
 			print_count += write(1, &"0123456789ABCDEF"[k[i]], 1);
 		i--;
 	}
-	return print_count;
+	return (print_count);
 }
